@@ -41,10 +41,12 @@ cudaFree(x);
 ```
 ### How the GPU splits the work
 The GPU can achive massive parallelism performance if we take advantage of the number of cores.
-We split the work in the following way. Grid -> Block -> Thread
-The Grid is the major block. We can have many grids, depending of what GPU we are using. The important thing is that the number of grids must be a power of 2.
-In every grid we have blocks that must also be a power of 2.
-And finally in every block we have threads, also a power of 2.
+We split the work in the following way. Grid -> Block -> Thread.
+
+- The Grid is the major block. We can have many grids, depending of what GPU we are using. The important thing is that the number of grids must be a power of 2.
+- In every grid we have blocks that must also be a power of 2.
+- And finally in every block we have threads, also a power of 2.
+ 
 The picture below shows a division of the work on an array and how to retrive the index of the elements.
 ![alt text](cuda_indexing.png "How the GPU can split the work on an array")
 
