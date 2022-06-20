@@ -1,6 +1,5 @@
 #include <iostream>
 #include <math.h>
-using namespace std;
 
 // Kernel function to add the elements of two arrays
 __global__
