@@ -8,13 +8,15 @@ void add(int n, float *x, float *y)
   int stride = blockDim.x * gridDim.x;
   for (int i = index; i < n; i += stride){
         y[i] = x[i] + y[i];
-        if (threadIdx.x < 50) {
-            printf("threadIdx.x: %d\n" threadIdx.x);
-            printf("threadIdx.y: %d\n" threadIdx.y);
-            printf("threadIdx.z: %d\n" threadIdx.z);
-            printf("blockDim.x: %d\n" blockDim.x);
-            printf("blockDim.y: %d\n" blockDim.y);
-            printf("blockDim.z: %d\n" blockDim.z);
+        if (blockIdx.x == 0) {
+            printf("---------START---------");
+            printf("threadIdx.x: %d\n", threadIdx.x);
+            printf("threadIdx.y: %d\n", threadIdx.y);
+            printf("threadIdx.z: %d\n", threadIdx.z);
+            printf("blockIdx.x: %d\n", blockIdx.x);
+            printf("blockIdx.y: %d\n", blockIdx.y);
+            printf("blockIdx.z: %d\n", blockIdx.z);
+            printf("---------END---------");
         }
     }
 }
